@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "settings": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "themes": {
+      "type": "object",
+      "properties": {
+        "light": {
+          "type": "string"
+        },
+        "dark": {
+          "type": "string"
+        },
+        "system": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "light",
+        "dark",
+        "system"
+      ]
+    },
+    "videoDevices": {
+      "type": "string"
+    },
+    "audioDevices": {
+      "type": "string"
+    },
+    "fullscreen": {
+      "type": "string"
+    },
+    "pictureInPicture": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "settings",
+    "language",
+    "theme",
+    "themes",
+    "videoDevices",
+    "audioDevices",
+    "fullscreen",
+    "pictureInPicture"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "../schema.json",
+  "settings": "Settings",
+  "language": "Language",
+  "theme": "Theme",
+  "themes": {
+    "light": "Light Theme",
+    "dark": "Dark Theme",
+    "system": "Use System Theme"
+  },
+  "videoDevices": "Video Devices",
+  "audioDevices": "Audio Devices",
+  "fullscreen": "Full screen",
+  "pictureInPicture": "Picture-in-Picture"
+}
