@@ -1,13 +1,11 @@
 {
   "extends": "next/core-web-vitals",
-  "rules": {
-    // Other rules
-    "@next/next/no-img-element": "off"
-  },
+  "plugins": ["unused-imports"],
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
       "rules": {
+        "unused-imports/no-unused-imports": "error",
         "react/destructuring-assignment": "off",
         "jsx-a11y/anchor-is-valid": "off",
         "react/require-default-props": "off",
