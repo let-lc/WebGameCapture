@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
+import Head from 'next/head';
 
 import { ThemeProvider } from 'next-themes';
 
@@ -16,6 +17,9 @@ const inter = Inter({ subsets: ['latin'] });
 const WebGameCapture = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <Head>
+        <title>Web Game Capture</title>
+      </Head>
       <main className={cn('min-h-screen', inter.className)}>
         <Component {...pageProps} />
         <Toaster />
