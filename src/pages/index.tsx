@@ -5,12 +5,12 @@ import dynamic from 'next/dynamic';
 import { useDebounce, useMouse } from 'react-use';
 
 import Menu from '@/components/app/Menu';
-import Video from '@/components/app/Video';
 import { useVolumeStore } from '@/hooks/useVolumeStore';
 
 const FullscreenButton = dynamic(() => import('@/components/app/FullscreenButton'), { ssr: false });
 const PictureInPictureButton = dynamic(() => import('@/components/app/PictureInPictureButton'), { ssr: false });
 const VolumeControl = dynamic(() => import('@/components/app/VolumeControl'), { ssr: false });
+const Video = dynamic(() => import('@/components/app/Video'), { ssr: false });
 
 const HomePage = () => {
   const ref = useRef(null);
