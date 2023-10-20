@@ -12,9 +12,9 @@ export const useDeviceStore = create<VideoState>()(
   devtools(
     persist(
       (set) => ({
-        videoDeviceId: '',
+        videoDeviceId: 'disable-video',
         setVideoDeviceId: (videoDeviceId) => set({ videoDeviceId }),
-        audioDeviceId: '',
+        audioDeviceId: 'disable-audio',
         setAudioDeviceId: (audioDeviceId) => set({ audioDeviceId }),
       }),
       {

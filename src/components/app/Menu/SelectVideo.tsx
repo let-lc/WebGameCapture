@@ -6,12 +6,18 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useDeviceStore } from '@/hooks/useDeviceStore';
 
-
 const SelectVideo = () => {
   const { t } = useTranslation();
   const mediaDevices = useMediaDevices();
   const [deviceId, setDeviceId] = useDeviceStore(useShallow((s) => [s.videoDeviceId, s.setVideoDeviceId]));
 
+  const DISABLE_VIDEO: MediaDeviceInfo = {
+    label: t('disableVideo'),
+    deviceId: 'disable-video',
+    groupId: 'disable-video',
+    kind: 'videoinput',
+    toJSON: () => ({}),
+  };
   // @ts-ignore
   const devices: Array<MediaDeviceInfo> = mediaDevices?.devices?.filter((device) => device.kind === 'videoinput') ?? [];
 
@@ -23,7 +29,7 @@ const SelectVideo = () => {
           <SelectValue placeholder={devices.find((device) => device.deviceId === deviceId)?.label || '...'} />
         </SelectTrigger>
         <SelectContent>
-          {devices.map(({ deviceId, label }) => (
+          {[DISABLE_VIDEO, ...devices].map(({ deviceId, label }) => (
             <SelectItem key={`video-${deviceId}`} value={deviceId}>
               {label}
             </SelectItem>
