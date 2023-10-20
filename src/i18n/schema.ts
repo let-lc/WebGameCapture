@@ -1,6 +1,8 @@
 import { Static, Type } from '@sinclair/typebox';
 
 export const Schema = Type.Object({
+  fullscreen: Type.String(),
+  pictureInPicture: Type.String(),
   settings: Type.String(),
   language: Type.String(),
   theme: Type.String(),
@@ -10,9 +12,34 @@ export const Schema = Type.Object({
     system: Type.String(),
   }),
   videoDevices: Type.String(),
+  disableVideo: Type.String(),
   audioDevices: Type.String(),
-  fullscreen: Type.String(),
-  pictureInPicture: Type.String(),
+  disableAudio: Type.String(),
+  description: Type.Object({
+    p1: Type.String(),
+    p2: Type.String(),
+  }),
+  projectSourceCode: Type.String(),
+  privacy: Type.Object({
+    p0: Type.String(),
+    p1: Type.String(),
+    p2: Type.String(),
+    links: Type.Object({
+      l1: Type.Object({
+        link: Type.String(),
+        text: Type.String(),
+      }),
+      l2: Type.Object({
+        link: Type.String(),
+        text: Type.String(),
+      }),
+    }),
+  }),
+  warning: Type.Object({
+    both: Type.String(),
+    camera: Type.String(),
+    microphone: Type.String(),
+  }),
 });
 
 export type Translations = Static<typeof Schema>;

@@ -1,5 +1,7 @@
 {
   "$schema": "../schema.json",
+  "fullscreen": "全屏",
+  "pictureInPicture": "画中画",
   "settings": "设置",
   "language": "语言",
   "theme": "主题",
@@ -9,7 +11,32 @@
     "system": "跟随系统"
   },
   "videoDevices": "视频设备",
+  "disableVideo": "关闭视频",
   "audioDevices": "音频设备",
-  "fullscreen": "全屏",
-  "pictureInPicture": "画中画"
+  "disableAudio": "关闭音频",
+  "description": {
+    "p1": "本站是为了在不安装任何视频采集软件的情况下，通过视频采集设备来游玩你的游戏主机。比起OBS会有几帧的延迟，但是对于大部分游戏来说无伤大雅。",
+    "p2": "这只是用来显示你的视频采集设备的视频输入，没有串流或者录制功能。如果需要哪些功能，请使用如OBS之类的软件。"
+  },
+  "projectSourceCode": "项目源代码",
+  "privacy": {
+    "p0": "隐私声明:",
+    "p1": "本站是完全静态，更不会上传你设备的音视频数据到任何后端服务器。",
+    "p2": "网站本身是不收集任何数据的。但是，因为是托管在GitHub Pages上，Github会收集例如访问者IP之类的数据。你可以查看下面有关于GitHub隐私声明的相关链接。",
+    "links": {
+      "l1": {
+        "link": "https://docs.github.com/zh/site-policy/privacy-policies/github-privacy-statement",
+        "text": "GitHub 隐私声明"
+      },
+      "l2": {
+        "link": "https://docs.github.com/zh/pages/getting-started-with-github-pages/about-github-pages#data-collection",
+        "text": "GitHub Pages - 数据收集"
+      }
+    }
+  },
+  "warning": {
+    "both": "你需要允许摄像头和麦克风权限来显示采集设备的输入。",
+    "camera": "你需要允许摄像头权限来显示视频输入。",
+    "microphone": "你需要允许麦克风权限来收听音频输入。"
+  }
 }

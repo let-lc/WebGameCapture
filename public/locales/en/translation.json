@@ -1,5 +1,7 @@
 {
   "$schema": "../schema.json",
+  "fullscreen": "Full screen",
+  "pictureInPicture": "Picture-in-Picture",
   "settings": "Settings",
   "language": "Language",
   "theme": "Theme",
@@ -9,7 +11,32 @@
     "system": "Use System Theme"
   },
   "videoDevices": "Video Devices",
+  "disableVideo": "Disable Video",
   "audioDevices": "Audio Devices",
-  "fullscreen": "Full screen",
-  "pictureInPicture": "Picture-in-Picture"
+  "disableAudio": "Disable Audio",
+  "description": {
+    "p1": "This website is for playing your game console via video capture device without installing any game capture softwares. It has a few frames delay comparing the desktop video capture software such as OBS, but it is good enough for playing most games.",
+    "p2": "This is only for displaying the video input from your video capture deivice, no streaming and recording functions. Please use softwares such as OBS if need those functions."
+  },
+  "projectSourceCode": "Project Source Code",
+  "privacy": {
+    "p0": "Privacy Policy:",
+    "p1": "This website is completely static and does not uploads the video and audio data of your devices to any backend server.",
+    "p2": "The site itself doesn't colelction any data. However, because it is hosted on GitHub Pages, GitHub will collect certain data sush as vistor's IP. You can check GitHub's Privacy Policy from the following links.",
+    "links": {
+      "l1": {
+        "link": "https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement",
+        "text": "GitHub Privacy Statement"
+      },
+      "l2": {
+        "link": "https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection",
+        "text": "GitHub Pages - Data Collection"
+      }
+    }
+  },
+  "warning": {
+    "both": "You need to enable both camera and micrphone permission to show your capture device input.",
+    "camera": "You need to enable camera permission to view the video input.",
+    "microphone": "You need to enable microphone permission to listen to the audio input."
+  }
 }

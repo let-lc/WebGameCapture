@@ -1,6 +1,12 @@
 {
   "type": "object",
   "properties": {
+    "fullscreen": {
+      "type": "string"
+    },
+    "pictureInPicture": {
+      "type": "string"
+    },
     "settings": {
       "type": "string"
     },
@@ -32,24 +38,126 @@
     "videoDevices": {
       "type": "string"
     },
+    "disableVideo": {
+      "type": "string"
+    },
     "audioDevices": {
       "type": "string"
     },
-    "fullscreen": {
+    "disableAudio": {
       "type": "string"
     },
-    "pictureInPicture": {
+    "description": {
+      "type": "object",
+      "properties": {
+        "p1": {
+          "type": "string"
+        },
+        "p2": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "p1",
+        "p2"
+      ]
+    },
+    "projectSourceCode": {
       "type": "string"
+    },
+    "privacy": {
+      "type": "object",
+      "properties": {
+        "p0": {
+          "type": "string"
+        },
+        "p1": {
+          "type": "string"
+        },
+        "p2": {
+          "type": "string"
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "l1": {
+              "type": "object",
+              "properties": {
+                "link": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "link",
+                "text"
+              ]
+            },
+            "l2": {
+              "type": "object",
+              "properties": {
+                "link": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "link",
+                "text"
+              ]
+            }
+          },
+          "required": [
+            "l1",
+            "l2"
+          ]
+        }
+      },
+      "required": [
+        "p0",
+        "p1",
+        "p2",
+        "links"
+      ]
+    },
+    "warning": {
+      "type": "object",
+      "properties": {
+        "both": {
+          "type": "string"
+        },
+        "camera": {
+          "type": "string"
+        },
+        "microphone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "both",
+        "camera",
+        "microphone"
+      ]
     }
   },
   "required": [
+    "fullscreen",
+    "pictureInPicture",
     "settings",
     "language",
     "theme",
     "themes",
     "videoDevices",
+    "disableVideo",
     "audioDevices",
-    "fullscreen",
-    "pictureInPicture"
+    "disableAudio",
+    "description",
+    "projectSourceCode",
+    "privacy",
+    "warning"
   ]
 }
