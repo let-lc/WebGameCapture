@@ -96,6 +96,8 @@ const SHADER_PARAMS: ShaderMaterialParameters = {
   depthTest: false,
 };
 
+// Port from: https://codepen.io/bsehovac/pen/jdawXK
+
 const Background = () => {
   const ref = useRef<HTMLDivElement>(null);
   const scene = useRef<Scene>();
