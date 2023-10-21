@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useMediaDevices } from 'react-use';
 import { useShallow } from 'zustand/react/shallow';
@@ -10,16 +12,27 @@ const SelectAudio = () => {
   const { t } = useTranslation();
   const mediaDevices = useMediaDevices();
   const [deviceId, setDeviceId] = useDeviceStore(useShallow((s) => [s.audioDeviceId, s.setAudioDeviceId]));
+  const devices = useMemo<Array<MediaDeviceInfo>>(() => {
+    const list: Array<MediaDeviceInfo> = [
+      {
+        label: t('disableAudio'),
+        deviceId: 'disable-audio',
+        groupId: 'disable-audio',
+        kind: 'audioinput',
+        toJSON: () => ({}),
+      },
+    ];
 
-  const DISABLE_AUDIO: MediaDeviceInfo = {
-    label: t('disableAudio'),
-    deviceId: 'disable-audio',
-    groupId: 'disable-audio',
-    kind: 'audioinput',
-    toJSON: () => ({}),
-  };
-  // @ts-ignore
-  const devices: Array<MediaDeviceInfo> = mediaDevices?.devices?.filter((device) => device.kind === 'audioinput') ?? [];
+    if ('devices' in mediaDevices) {
+      for (const device of mediaDevices.devices as Array<MediaDeviceInfo>) {
+        if (device.kind === 'audioinput' && device.deviceId) {
+          list.push(device);
+        }
+      }
+    }
+
+    return list;
+  }, [mediaDevices, t]);
 
   return (
     <div>
@@ -29,7 +42,7 @@ const SelectAudio = () => {
           <SelectValue placeholder={devices.find((device) => device.deviceId === deviceId)?.label || '...'} />
         </SelectTrigger>
         <SelectContent>
-          {[DISABLE_AUDIO, ...devices].map(({ deviceId, label }) => (
+          {devices.map(({ deviceId, label }) => (
             <SelectItem key={`audio-${deviceId}`} value={deviceId}>
               {label}
             </SelectItem>
