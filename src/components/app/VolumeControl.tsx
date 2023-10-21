@@ -36,7 +36,7 @@ const VolumeControl = () => {
 
   const handleMute = () => {
     if (volume === 0) {
-      setVolume(reserveVolume);
+      setVolume(reserveVolume || 2);
     } else {
       setReserveVolume(volume);
       setVolume(0);
