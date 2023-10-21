@@ -19,6 +19,7 @@ const WebGameCapture = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <Head>
         <title>Web Game Capture</title>
+        <meta name="description" content="This website is for playing your game console via video capture device without installing any game capture softwares." />
       </Head>
       <main className={cn('min-h-screen', inter.className)}>
         <Component {...pageProps} />
