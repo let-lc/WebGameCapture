@@ -16,14 +16,14 @@
   "audioDevices": "Audio Devices",
   "disableAudio": "Disable Audio",
   "description": {
-    "p1": "This website is for playing your game console via video capture device without installing any game capture softwares. It has a few frames delay comparing the desktop video capture software such as OBS, but it is good enough for playing most games.",
-    "p2": "This is only for displaying the video input from your video capture deivice, no streaming and recording functions. Please use softwares such as OBS if need those functions."
+    "p1": "This website allows you to play your game console through a video capture device, eliminating the need for any video capture software installations. While there may be a slight delay in frames compared to desktop video capture software like OBS, it still provides a satisfactory gaming experience for most games.",
+    "p2": "This platform is solely designed for displaying video input from your video capture device. It does not support streaming or recording functions. For those features, please consider using software like OBS."
   },
   "projectSourceCode": "Project Source Code",
   "privacy": {
     "p0": "Privacy Policy:",
-    "p1": "This website is completely static and does not uploads the video and audio data of your devices to any backend server.",
-    "p2": "The site itself doesn't colelction any data. However, because it is hosted on GitHub Pages, GitHub will collect certain data sush as vistor's IP. You can check GitHub's Privacy Policy from the following links.",
+    "p1": "This website is entirely static and does not transmit your device’s video and audio data to any backend server.",
+    "p2": "While the site itself does not collect any data, it is hosted on GitHub Pages, which may gather certain information such as the visitor’s IP address by GitHub. For more details, please refer to GitHub’s Privacy Policy via the provided links.",
     "links": {
       "l1": {
         "link": "https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement",
