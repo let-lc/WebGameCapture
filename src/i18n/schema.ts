@@ -3,6 +3,7 @@ import { Static, Type } from '@sinclair/typebox';
 export const Schema = Type.Object({
   fullscreen: Type.String(),
   pictureInPicture: Type.String(),
+  screenshot: Type.String(),
   settings: Type.String(),
   language: Type.String(),
   theme: Type.String(),

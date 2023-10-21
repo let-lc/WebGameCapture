@@ -1,7 +1,8 @@
 {
   "$schema": "../schema.json",
-  "fullscreen": "全屏",
+  "fullscreen": "全屏（F11/双击）",
   "pictureInPicture": "画中画",
+  "screenshot": "截图（空格）",
   "settings": "设置",
   "language": "语言",
   "theme": "主题",

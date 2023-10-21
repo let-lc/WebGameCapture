@@ -7,6 +7,7 @@ import { useDebounce, useMouse } from 'react-use';
 import Menu from '@/components/app/Menu';
 import { useVolumeStore } from '@/hooks/useVolumeStore';
 
+const ScreenshotButton = dynamic(() => import('@/components/app/ScreenshotButton'), { ssr: false });
 const FullscreenButton = dynamic(() => import('@/components/app/FullscreenButton'), { ssr: false });
 const PictureInPictureButton = dynamic(() => import('@/components/app/PictureInPictureButton'), { ssr: false });
 const VolumeControl = dynamic(() => import('@/components/app/VolumeControl'), { ssr: false });
@@ -43,6 +44,7 @@ const HomePage = () => {
         <Menu />
         <FullscreenButton />
         <PictureInPictureButton />
+        <ScreenshotButton />
       </div>
       <div
         className="fixed inset-y-0 right-0 flex translate-x-full flex-col justify-center gap-2 p-4 opacity-0 transition-all duration-300 data-[show=true]:translate-x-0 data-[show=true]:opacity-100"

@@ -7,6 +7,9 @@
     "pictureInPicture": {
       "type": "string"
     },
+    "screenshot": {
+      "type": "string"
+    },
     "settings": {
       "type": "string"
     },
@@ -147,6 +150,7 @@
   "required": [
     "fullscreen",
     "pictureInPicture",
+    "screenshot",
     "settings",
     "language",
     "theme",
