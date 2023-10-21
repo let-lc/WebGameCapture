@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
+import { SymbolIcon } from '@radix-ui/react-icons';
 import { useTranslation } from 'react-i18next';
 import { usePermission } from 'react-use';
 import Webcam from 'react-webcam';
@@ -9,9 +10,11 @@ import { useToast } from '@/components/ui/use-toast';
 import { useDeviceStore } from '@/hooks/useDeviceStore';
 import { useFullscreenStore } from '@/hooks/useFullscreenStore';
 import { useVolumeStore } from '@/hooks/useVolumeStore';
+import { cn } from '@/lib/utils';
 
 const Video = () => {
   const ref = useRef<Webcam>(null);
+  const [loading, setLoading] = useState(false);
   const toggleFullscreen = useFullscreenStore((s) => s.toggleFullscreen);
   const volume = useVolumeStore((s) => s.volume);
   const [videoDeviceId, audioDeviceId, setAudioDeviceId] = useDeviceStore(
@@ -22,18 +25,26 @@ const Video = () => {
   const videoPermission = usePermission({ name: 'camera' });
   const audioPermission = usePermission({ name: 'microphone' });
 
+  // Disable audio when video is disabled.
   useEffect(() => {
     if (videoDeviceId === 'disable-video') {
       setAudioDeviceId('disable-audio');
     }
   }, [setAudioDeviceId, videoDeviceId]);
 
+  // Enable loading state when device changed.
+  useEffect(() => {
+    setLoading(true);
+  }, [videoDeviceId, audioDeviceId]);
+
+  // Update video volume.
   useEffect(() => {
     if (ref?.current?.video) {
       ref.current.video.volume = volume / 100;
     }
   }, [volume]);
 
+  // Permission check.
   useEffect(() => {
     let description;
 
@@ -50,27 +61,41 @@ const Video = () => {
     }
   }, [toast, t, videoPermission, audioPermission]);
 
+  const handleLoadingComplete = () => {
+    setLoading(false);
+  };
+
   if (videoDeviceId === 'disable-video') {
     return null;
   }
 
   return (
-    <Webcam
-      ref={ref}
-      id="capture-output"
-      className="h-screen w-screen"
-      audio
-      screenshotQuality={1}
-      screenshotFormat="image/jpeg"
-      videoConstraints={{ deviceId: videoDeviceId }}
-      onDoubleClick={toggleFullscreen}
-      audioConstraints={{
-        deviceId: audioDeviceId === 'disable-audio' ? undefined : audioDeviceId,
-        echoCancellation: false,
-        autoGainControl: false,
-        noiseSuppression: false,
-      }}
-    />
+    <>
+      <div className={cn('pointer-events-none fixed inset-0 items-center justify-center', loading ? 'flex' : 'hidden')}>
+        <div className="flex aspect-square h-16 w-16 items-center justify-center rounded bg-foreground/25">
+          <SymbolIcon className="h-12 w-12 animate-spin text-foreground" />
+        </div>
+      </div>
+      <Webcam
+        ref={ref}
+        id="capture-output"
+        className="h-screen w-screen"
+        audio
+        screenshotQuality={1}
+        screenshotFormat="image/jpeg"
+        videoConstraints={{ deviceId: videoDeviceId }}
+        onDoubleClick={toggleFullscreen}
+        hidden={loading}
+        onUserMedia={handleLoadingComplete}
+        onUserMediaError={handleLoadingComplete}
+        audioConstraints={{
+          deviceId: audioDeviceId === 'disable-audio' ? undefined : audioDeviceId,
+          echoCancellation: false,
+          autoGainControl: false,
+          noiseSuppression: false,
+        }}
+      />
+    </>
   );
 };
 
