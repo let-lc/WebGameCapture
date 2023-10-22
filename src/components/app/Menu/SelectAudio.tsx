@@ -44,7 +44,7 @@ const SelectAudio = () => {
         <SelectContent>
           {devices.map(({ deviceId, label }) => (
             <SelectItem key={`audio-${deviceId}`} value={deviceId}>
-              {label}
+              {label || deviceId}
             </SelectItem>
           ))}
         </SelectContent>

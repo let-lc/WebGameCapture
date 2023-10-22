@@ -38,13 +38,13 @@ const SelectVideo = () => {
     <div>
       <Label htmlFor="video-trigger">{t('videoDevices')}</Label>
       <Select value={deviceId} onValueChange={setDeviceId}>
-        <SelectTrigger id="video-trigger" className="mt-1">
+        <SelectTrigger id="video-trigger" className="mt-1 [&>span]:truncate [&>span]:whitespace-nowrap">
           <SelectValue placeholder={devices.find((device) => device.deviceId === deviceId)?.label || '...'} />
         </SelectTrigger>
         <SelectContent>
           {devices.map(({ deviceId, label }) => (
             <SelectItem key={`video-${deviceId}`} value={deviceId}>
-              {label}
+              {label || deviceId}
             </SelectItem>
           ))}
         </SelectContent>
