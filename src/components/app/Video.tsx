@@ -85,8 +85,8 @@ const Video = () => {
       <Webcam
         ref={ref}
         id="capture-output"
-        className={cn('h-screen w-screen', videoDeviceId === 'disable-video' ? 'hidden' : 'block')}
-        audio={videoDeviceId === 'disable-video' || audioDeviceId === 'disable-audio'}
+        className={cn('h-screen w-screen', videoDeviceId === 'disable-video' || loading ? 'hidden' : 'block')}
+        audio={true}
         screenshotQuality={1}
         screenshotFormat="image/jpeg"
         videoConstraints={{ deviceId: videoDeviceId }}
