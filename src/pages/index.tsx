@@ -4,14 +4,14 @@ import dynamic from 'next/dynamic';
 
 import { useDebounce, useMouse } from 'react-use';
 
-import Menu from '@/components/app/Menu';
 import { useVolumeStore } from '@/hooks/useVolumeStore';
 
-const ScreenshotButton = dynamic(() => import('@/components/app/ScreenshotButton'), { ssr: false });
-const FullscreenButton = dynamic(() => import('@/components/app/FullscreenButton'), { ssr: false });
-const PictureInPictureButton = dynamic(() => import('@/components/app/PictureInPictureButton'), { ssr: false });
-const VolumeControl = dynamic(() => import('@/components/app/VolumeControl'), { ssr: false });
-const Video = dynamic(() => import('@/components/app/Video'), { ssr: false });
+const Menu = dynamic(() => import('@/components/app/Menu'), { loading: () => null });
+const ScreenshotButton = dynamic(() => import('@/components/app/ScreenshotButton'), { loading: () => null });
+const FullscreenButton = dynamic(() => import('@/components/app/FullscreenButton'), { loading: () => null });
+const PiPButton = dynamic(() => import('@/components/app/PictureInPictureButton'), { loading: () => null });
+const VolumeControl = dynamic(() => import('@/components/app/VolumeControl'), { loading: () => null });
+const Video = dynamic(() => import('@/components/app/Video'), { loading: () => null });
 
 const HomePage = () => {
   const ref = useRef(null);
@@ -43,7 +43,7 @@ const HomePage = () => {
       >
         <Menu />
         <FullscreenButton />
-        <PictureInPictureButton />
+        <PiPButton />
         <ScreenshotButton />
       </div>
       <div
