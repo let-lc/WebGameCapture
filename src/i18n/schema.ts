@@ -40,6 +40,7 @@ export const Schema = Type.Object({
     both: Type.String(),
     camera: Type.String(),
     microphone: Type.String(),
+    firefox: Type.String(),
   }),
 });
 

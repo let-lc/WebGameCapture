@@ -138,12 +138,16 @@
         },
         "microphone": {
           "type": "string"
+        },
+        "firefox": {
+          "type": "string"
         }
       },
       "required": [
         "both",
         "camera",
-        "microphone"
+        "microphone",
+        "firefox"
       ]
     }
   },

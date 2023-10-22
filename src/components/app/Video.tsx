@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { SymbolIcon } from '@radix-ui/react-icons';
+import { detect } from 'detect-browser';
 import { useTranslation } from 'react-i18next';
 import { usePermission } from 'react-use';
 import Webcam from 'react-webcam';
@@ -46,6 +47,15 @@ const Video = () => {
 
   // Permission check.
   useEffect(() => {
+    const browser = detect();
+
+    if (!localStorage.getItem('hide-firefox-warning') && browser?.name === 'firefox') {
+      const hide = confirm(t('warning.firefox'));
+      if (hide) {
+        localStorage.setItem('hide-firefox-warning', 'true');
+      }
+    }
+
     let description;
 
     if (videoPermission === 'denied' && audioPermission === 'denied') {

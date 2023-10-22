@@ -38,6 +38,7 @@
   "warning": {
     "both": "You need to enable both camera and micrphone permission to show your capture device input.",
     "camera": "You need to enable camera permission to view the video input.",
-    "microphone": "You need to enable microphone permission to listen to the audio input."
+    "microphone": "You need to enable microphone permission to listen to the audio input.",
+    "firefox": "(Chromium-based browser is recommended)\n\nFor Firefox user: You need to manually choose the permitted camera and microphone device from your browser settings. If necessary, you may also need to select it once more from the settings panel of this website.\n\nHide this message again next time?"
   }
 }
