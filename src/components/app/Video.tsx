@@ -65,12 +65,8 @@ const Video = () => {
     setLoading(false);
   };
 
-  if (videoDeviceId === 'disable-video') {
-    return null;
-  }
-
   return (
-    <>
+    <div>
       <div className={cn('pointer-events-none fixed inset-0 items-center justify-center', loading ? 'flex' : 'hidden')}>
         <div className="flex aspect-square h-16 w-16 items-center justify-center rounded bg-foreground/25">
           <SymbolIcon className="h-12 w-12 animate-spin text-foreground" />
@@ -79,8 +75,8 @@ const Video = () => {
       <Webcam
         ref={ref}
         id="capture-output"
-        className="h-screen w-screen"
-        audio
+        className={cn('h-screen w-screen', videoDeviceId === 'disable-video' ? 'hidden' : 'block')}
+        audio={videoDeviceId === 'disable-video' || audioDeviceId === 'disable-audio'}
         screenshotQuality={1}
         screenshotFormat="image/jpeg"
         videoConstraints={{ deviceId: videoDeviceId }}
@@ -95,7 +91,7 @@ const Video = () => {
           noiseSuppression: false,
         }}
       />
-    </>
+    </div>
   );
 };
 
