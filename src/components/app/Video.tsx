@@ -8,6 +8,7 @@ import Webcam from 'react-webcam';
 import { useShallow } from 'zustand/react/shallow';
 
 import { useToast } from '@/components/ui/use-toast';
+import { useBrightnessStore } from '@/hooks/useBrightnessStore';
 import { useDeviceStore } from '@/hooks/useDeviceStore';
 import { useFullscreenStore } from '@/hooks/useFullscreenStore';
 import { useVolumeStore } from '@/hooks/useVolumeStore';
@@ -18,6 +19,7 @@ const Video = () => {
   const [loading, setLoading] = useState(false);
   const toggleFullscreen = useFullscreenStore((s) => s.toggleFullscreen);
   const volume = useVolumeStore((s) => s.volume);
+  const brightness = useBrightnessStore((s) => s.brightness);
   const [videoDeviceId, audioDeviceId, setAudioDeviceId] = useDeviceStore(
     useShallow((s) => [s.videoDeviceId, s.audioDeviceId, s.setAudioDeviceId])
   );
@@ -86,6 +88,7 @@ const Video = () => {
         ref={ref}
         id="capture-output"
         className={cn('h-screen w-screen', videoDeviceId === 'disable-video' || loading ? 'hidden' : 'block')}
+        style={{ filter: `brightness(${brightness})` }}
         audio={true}
         screenshotQuality={1}
         screenshotFormat="image/jpeg"

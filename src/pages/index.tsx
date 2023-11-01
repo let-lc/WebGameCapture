@@ -9,6 +9,10 @@ const ScreenshotButton = dynamic(() => import('@/components/app/ScreenshotButton
 const FullscreenButton = dynamic(() => import('@/components/app/FullscreenButton'), { loading: () => null });
 const PiPButton = dynamic(() => import('@/components/app/PictureInPictureButton'), { loading: () => null });
 const VolumeControl = dynamic(() => import('@/components/app/VolumeControl'), { loading: () => null, ssr: false });
+const BrightnessControl = dynamic(() => import('@/components/app/BrightnessControl'), {
+  loading: () => null,
+  ssr: false,
+});
 const Video = dynamic(() => import('@/components/app/Video'), { loading: () => null });
 
 const HomePage = () => {
@@ -43,6 +47,7 @@ const HomePage = () => {
         data-show={String(showRight)}
       >
         <VolumeControl />
+        <BrightnessControl />
       </div>
     </div>
   );
